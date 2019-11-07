@@ -1,0 +1,53 @@
+.sidenav-container {
+  height: 60%;
+}
+
+.sidenav {
+  width: 200px;
+  opacity: 90%;
+  box-shadow:3px 0 6px rgba(0,0,0,0.24);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.hidden{
+  display:none;
+
+}
+.sidenav-container{
+  height: 100%;
+}
+.spacer{
+  flex:1 1 auto;
+}
+span:focus{
+  outline:none;
+  border :0;
+}
+span{
+  cursor:pointer;
+}
+p.conew:focus{
+  outline: none;
+  
+}
+p.conew{
+  border:30px ;
+  padding-top:12px;
+  font-family: 'Times New Roman', Times, serif;;
+  font-size: 4vw;
+  font-style:oblique;
+  color: rgba(54, 53, 44, 0.877);
+  font-kerning: normal;
+  font-weight:500;
+}
+.spacer2{
+  flex: none;
+}

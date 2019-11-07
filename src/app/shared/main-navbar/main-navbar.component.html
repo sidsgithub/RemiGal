@@ -1,0 +1,87 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #drawer 
+    class="sidenav" 
+    [ngClass]="{hidden: (isHandset$ | async) === false}" 
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" 
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar routerLink="/blog">Home</mat-toolbar>
+    <mat-nav-list>
+
+      <div *ngIf="auth.afAuth.authState | async as user;then showLogout else showLogin"></div>
+          <ng-template #showLogout>
+            
+            <button mat-flat-button color="warn" routerLink="/dashboard">Write a post</button>
+            <br>
+            <button mat-button (click)="auth.logout()">Logout</button>
+          
+          </ng-template>
+          <br>
+          <button mat-button>Contact</button>
+          <br>
+          <button mat-button>About</button>
+          <br>
+          <ng-template #showLogin>
+              <button mat-button (click)="auth.login()">Login</button>
+              <br>
+          </ng-template>
+
+      
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="accent">
+
+      <button type="button" 
+              aria-label="Toggle sidenav" 
+              mat-icon-button (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+              <mat-icon aria-label="Side nav toggle icon">
+                menu
+              </mat-icon>
+      </button>
+
+      <span routerLink="/blog">
+        <p class="conew">
+          <strong>R</strong>eminiscence<strong>G</strong>al
+        </p>
+      </span>
+
+      <span class="spacer"></span>
+
+      <span [ngClass]="{hidden: !(isHandset$ | async) === false} ">
+          <div>
+            <button mat-button>Contact</button>
+            <button mat-button>About</button>
+          </div>
+  
+          <ng-template #showLogin>
+            <button mat-button (click)="auth.login()">Login</button>
+          </ng-template>
+  
+        </span>
+
+      <span [ngClass]="{hidden: !(isHandset$ | async) === false} ">
+        <!-- Add toolbar Content Here -->
+        <div *ngIf="auth.afAuth.authState | async as user;else showLogin">
+          <button mat-button (click)="auth.logout()">Logout</button>
+          <button mat-flat-button color="warn" routerLink="/dashboard">Write a post</button>
+        </div>
+      </span>
+
+      
+
+    </mat-toolbar>
+
+    <ng-content>
+
+    </ng-content>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

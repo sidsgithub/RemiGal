@@ -1,0 +1,42 @@
+html{
+    height: 100%;
+}
+body{
+    margin:0;
+    min-height:100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+.footer-content{
+    background-color:rgba(32, 31, 31, 0.904);
+    color:rgb(241, 241, 241);
+    
+}
+.footer {
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+.editor{
+    padding: 1vw;
+    padding-left:20vw;
+}
+strong.sid{
+    color: turquoise;
+}
+.social:focus{
+    cursor: pointer;
+}
+a:link{
+    text-decoration: none;
+}
+/* created problem while designing sticky footer */
+/* .social{
+    padding:10vw;
+    padding-left : 26vw;
+} */
+
+
+
+
+
+
